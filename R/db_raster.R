@@ -1,4 +1,13 @@
-#export
+#' db_raster
+#'
+#' @export
+#' @param data Data frame or Spark table
+#' @param resolution Number of squares to return to plot as raster. Defaults to 300.
+#' @param output Sets the type of output, defaults to 'data'. Possible values: 'data', 'ggplot'
+#'
+#' @details
+#'
+#' Pushes the computation of the raster squares to the server and returns a data frame
 db_raster <- function(data,resolution = 300, output = "data", ...) {
   args <- list(...)
 

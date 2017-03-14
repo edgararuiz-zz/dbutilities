@@ -18,7 +18,18 @@ type_conversion <- function(x, db){
   return(new_type)
 }
 
-#export
+#' db_histogram
+#'
+#' @export
+#' @param filename A CSV file
+#' @param db The type of connection or database. Possible values: 'hive', 'sparklyr'
+#'
+#' @details
+#'
+#' Utility to build the CREATE TABLE SQL for a Hive table or the columns list for sparklyr based on the top 5
+#' rows in the CSV file
+#'
+
 db_map_csv  <- function(filename, db = "sparklyr", ...){
 
   top_rows <- suppressMessages(readr::read_csv(filename, n_max = 5))

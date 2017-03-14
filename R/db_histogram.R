@@ -1,4 +1,13 @@
-#export
+#' db_histogram
+#'
+#' @export
+#' @param data Data frame or Spark table
+#' @param bins Number of bins for the Histogram. Defaults to 30.
+#' @param output Sets the type of output, defaults to 'data'. Possible values: 'data', 'ggplot'
+#'
+#' @details
+#'
+#' Pushes the computation of the bins to the server and returns a data frame with the specified number of bins
 db_histogram <- function(data,bins = 30, output = "data", ...) {
   args <- list(...)
 
