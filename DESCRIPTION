@@ -1,12 +1,13 @@
 Package: dbutilities
 Type: Package
-Title: What the Package Does (Title Case)
+Title: DB Utilities
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Edgar Ruiz
+Maintainer: Edgar Ruiz <edgar@rstudio.com>
+Description: A set of time and cost (import/compute) saving functions as tools.  
+    The package includes 2 plotting functions that push the compute (stat) to the database and 
+    another function to facilitate the mapping CSV files into tables or Spark memory
+License: MIT
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1
