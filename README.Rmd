@@ -4,12 +4,13 @@ output: github_document
 ---
 
 A set of time and cost (import/compute) saving functions as tools:
-  
-- **db_histogram** - Calculates the bins of a Histogram inside the database. And by default returns a data frame with the values.  When the **output** argument is changed to **ggplot** the function will return a geom_bar ggplot, which meant for a quick plot view.
 
-- **db_raster** - Groups and aggregates the values of two variables so as to allow a large dataset to be visualized.  When the **output** argument is changed to **ggplot** the function will return a geom_bar ggplot, which meant for a quick plot view.
+- **db_map_csv** - Use a sample CSV file to create a Hive table or pass the 'columns' argument to spark_read_csv.  This technique is meant to cut down the time of reading CSV files into the Spark context. It does that by either passing the column names and types in spark_read_csv or by using SQL to create the table
 
-- **db_map_csv** - Reads the first five rows of a CSV file and builds a *Create Table* statement text that can be run in Hive.  It can also create the list needed to pass in **sparklyr** to avoid mapping each column manually
+- **db_histogram** - Computes the bins of the histogram in the server.  The function will use the first column in the data set.  Using the dplyr::select statement prior to calling db_histogram will ease adding or removing a plotting step.  The 'data' value for the 'db' argument will return a data frame instead of a plot.
+
+- **db_raster** - Computes the frequency of x, y intersections and concentrates them based on the resolution.  The function will use the first two columns in the data set.  Using the dplyr::select statement prior to calling db_raster will ease adding or removing a plotting step..  The 'data' value for the 'db' argument will return a data frame instead of a plot.
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -27,7 +28,7 @@ devtools::install_github("edgararuiz/dbutilities")
 
 We will review how to use **dbutilities** with the following example. We'll start by loading the needed libraries. We will use the *nycflights13* as the data source for this example
 
-```{r, include = FALSE, eval = FALSE}
+```{r, include = FALSE, eval = TRUE}
 # Required
 library(tidyverse)
 library(sparklyr)

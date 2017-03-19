@@ -5,3 +5,5 @@
 .spark.log
 csv/flights.csv
 .log
+derby.log
+log4j.spark.log

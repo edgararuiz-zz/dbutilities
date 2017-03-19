@@ -3,11 +3,11 @@ dbutilties
 
 A set of time and cost (import/compute) saving functions as tools:
 
--   **db\_histogram** - Calculates the bins of a Histogram inside the database. And by default returns a data frame with the values. When the **output** argument is changed to **ggplot** the function will return a geom\_bar ggplot, which meant for a quick plot view.
+-   **db\_map\_csv** - Use a sample CSV file to create a Hive table or pass the 'columns' argument to spark\_read\_csv. This technique is meant to cut down the time of reading CSV files into the Spark context. It does that by either passing the column names and types in spark\_read\_csv or by using SQL to create the table
 
--   **db\_raster** - Groups and aggregates the values of two variables so as to allow a large dataset to be visualized. When the **output** argument is changed to **ggplot** the function will return a geom\_bar ggplot, which meant for a quick plot view.
+-   **db\_histogram** - Computes the bins of the histogram in the server. The function will use the first column in the data set. Using the dplyr::select statement prior to calling db\_histogram will ease adding or removing a plotting step. The 'data' value for the 'db' argument will return a data frame instead of a plot.
 
--   **db\_map\_csv** - Reads the first five rows of a CSV file and builds a *Create Table* statement text that can be run in Hive. It can also create the list needed to pass in **sparklyr** to avoid mapping each column manually
+-   **db\_raster** - Computes the frequency of x, y intersections and concentrates them based on the resolution. The function will use the first two columns in the data set. Using the dplyr::select statement prior to calling db\_raster will ease adding or removing a plotting step.. The 'data' value for the 'db' argument will return a data frame instead of a plot.
 
 Installation
 ------------

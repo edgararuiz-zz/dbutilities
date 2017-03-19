@@ -18,7 +18,7 @@ Computes the bins of the histogram in the server
 }
 \details{
 The function will use the first column in the data set.  Using the dplyr::select statement
-prior to calling db_raster will ease adding or removing a plotting step.  The 'data' value
+prior to calling db_histogram will ease adding or removing a plotting step.  The 'data' value
 for the 'db' argument will return a data frame instead of a plot.
 }
 \examples{
