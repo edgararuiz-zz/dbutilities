@@ -1,4 +1,4 @@
-#' db_raster
+#' Computes the frequency of x, y intersections and concentrates them based on the resolution
 #'
 #' @export
 #' @param data Data frame or Spark table
@@ -7,8 +7,19 @@
 #'
 #' @details
 #'
-#' Pushes the computation of the raster squares to the server and returns a data frame
-db_raster <- function(data, resolution = 300, output = "data", ...) {
+#' The function will use the first two columns in the data set.  Using the dplyr::select statement
+#' prior to calling db_raster will ease adding or removing a plotting step..  The 'data' value
+#' for the 'db' argument will return a data frame instead of a plot.
+#'
+#' @examples
+#' \dontrun{
+#' flights %>%
+#'   filter(arr_delay < 100) %>%
+#'   select(arr_delay, dep_delay) %>%
+#'   db_raster()
+#' }
+#'
+db_raster <- function(data, resolution = 300, output = "ggplot", ...) {
     args <- list(...)
 
     x_field <- colnames(data)[1]

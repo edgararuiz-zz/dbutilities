@@ -1,4 +1,4 @@
-#' db_histogram
+#' Computes the bins of the histogram in the server
 #'
 #' @export
 #' @param data Data frame or Spark table
@@ -7,8 +7,21 @@
 #'
 #' @details
 #'
-#' Pushes the computation of the bins to the server and returns a data frame with the specified number of bins
-db_histogram <- function(data, bins = 30, output = "data", ...) {
+#' The function will use the first column in the data set.  Using the dplyr::select statement
+#' prior to calling db_raster will ease adding or removing a plotting step.  The 'data' value
+#' for the 'db' argument will return a data frame instead of a plot.
+#'
+#' @examples
+#' \dontrun{
+#' # This will return a 'ggplot' of a 30 bin histogram of the 'distance' field
+#' flights %>%
+#' filter(arr_delay < 100) %>%
+#'   select(distance) %>%
+#'   db_histogram()
+#' }
+#'
+#'
+db_histogram <- function(data, bins = 30, output = "ggplot", ...) {
     args <- list(...)
 
     x_name <- colnames(data)[1]

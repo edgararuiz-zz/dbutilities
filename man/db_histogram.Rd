@@ -2,9 +2,9 @@
 % Please edit documentation in R/db_histogram.R
 \name{db_histogram}
 \alias{db_histogram}
-\title{db_histogram}
+\title{Computes the bins of the histogram in the server}
 \usage{
-db_histogram(data, bins = 30, output = "data", ...)
+db_histogram(data, bins = 30, output = "ggplot", ...)
 }
 \arguments{
 \item{data}{Data frame or Spark table}
@@ -14,9 +14,22 @@ db_histogram(data, bins = 30, output = "data", ...)
 \item{output}{Sets the type of output, defaults to 'data'. Possible values: 'data', 'ggplot'}
 }
 \description{
-db_histogram
+Computes the bins of the histogram in the server
 }
 \details{
-Pushes the computation of the bins to the server and returns a data frame with the specified number of bins
+The function will use the first column in the data set.  Using the dplyr::select statement
+prior to calling db_raster will ease adding or removing a plotting step.  The 'data' value
+for the 'db' argument will return a data frame instead of a plot.
+}
+\examples{
+\dontrun{
+# This will return a 'ggplot' of a 30 bin histogram of the 'distance' field
+flights \%>\%
+filter(arr_delay < 100) \%>\%
+  select(distance) \%>\%
+  db_histogram()
+}
+
+
 }
 

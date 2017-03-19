@@ -15,26 +15,47 @@ A set of time and cost (import/compute) saving functions as tools:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Installation
+
+You can install **dbutilities** from GitHub
+
 ```{r, eval = FALSE}
 devtools::install_github("edgararuiz/dbutilities")
 ```
 
+## Using dbutilities
+
+We will review how to use **dbutilities** with the following example. We'll start by loading the needed libraries. We will use the *nycflights13* as the data source for this example
+
 ```{r, include = FALSE}
-library(dplyr)
+# Required
+library(tidyverse)
 library(sparklyr)
 library(dbutilities)
-library(ggplot2)
+# Only for the example
 library(nycflights13)
 ```
 
 ```{r, eval = FALSE}
-library(dplyr)
+# Required
+library(tidyverse)
 library(sparklyr)
 library(dbutilities)
-library(ggplot2)
+# Only for the example
 library(nycflights13)
 ```
 
+Calling the **flights** table into R memory
+
+```{r}
+data("flights")
+flights
+```
+
+
+### Connecting to Spark
+
+We will use a local Spark context
 
 ```{r}
 conf <- spark_config()
@@ -44,52 +65,123 @@ conf <- spark_config()
                       config = conf)
 ```
 
+## db_map_csv
+
+### CSV file
+
+We will create a CSV file based on the **flights** table to use as our source. The file is then placed on a folder that should contain only CSV files with the exact same layout.
 
 ```{r}
-data("flights")
+if(!dir.exists("csv"))dir.create("csv")
+write_csv(flights, "csv/flights.csv")
+list.files("csv/")
+```
+
+### Hive table
+
+The following **db_map_csv** call will return a character variable containing the SQL statement that can be used to create the table.
+
+```{r}
+create_sql <- db_map_csv(sample_file = "csv/flights.csv", 
+                         db = "hive", 
+                         dir_location = file.path(getwd(), "csv"),
+                         table_name = "sql_flights")
+create_sql
+```
+
+Using the **DBI** package, we will pass the SQL statement in the resulting *create_sql* 
+
+```{r}
+DBI::dbGetQuery(sc, create_sql)
+
+tbl(sc, "sql_flights")
+```
+
+### sparklyr
+
+The following **db_map_csv** command will return a list that contains all of the field names.  Because currently, the spark_read_csv command does not like NA's in numeric fields, all fields are mapped as character.  They can then be converted to the proper type using dplyr.
+
+```{r}
+flights_columns <- db_map_csv(sample_file = "csv/flights.csv")
+flights_columns
+```
+
+The resulting list can then be passed in the *columns* argument.  Also, make sure to pass FALSE in the *infer_schema* argument. This technique looked to be the fastest way of importing a CSV file into Spark, see: http://spark.rstudio.com/example-s3.html
+
+```{r}
+flights_noinfer <- spark_read_csv(sc, 
+                                  name = "noinfer_flights", 
+                                  path = "csv/",
+                                  infer_schema = FALSE,
+                                  columns = flights_columns)
+
+tbl(sc, "noinfer_flights")
+```
+
+## Plotting functions
+
+Copying the *flights* data frame into Spark
+
+```{r}
 flights <- copy_to(sc, flights, "spark_flights")
 ```
 
+### db_histogram
+
+We will select the *distance* field and then pass the *db_histogram* function using all of the defaults.  This will return a ggplot with a 30 bin histogram.
+
 ```{r}
 flights %>%
   filter(arr_delay < 100) %>%
-  select(distance) %>%
+  select(arr_delay) %>%
   db_histogram()
 ```
 
-```{r}
-flights %>%
-  filter(arr_delay < 100) %>%
-  select(arr_delay) %>%
-  db_histogram(output = "ggplot")
-```
-```{r}
-flights %>%
-  filter(arr_delay < 100) %>%
-  select(arr_delay) %>%
-  db_histogram(bins = 10,  output = "ggplot")
-```
-
+We can also control the number of bins returned.
 
 ```{r}
 flights %>%
   filter(arr_delay < 100) %>%
+  select(arr_delay) %>%
+  db_histogram(bins = 10)
+```
+
+Passing the "data" in the **output** argument will return a data frame with the results.  This is intended for the user to plot with a different package.
+
+```{r}
+flights %>%
+  filter(arr_delay < 100) %>%
+  select(arr_delay) %>%
+  db_histogram(output = "data")
+```
+
+### db_raster
+
+We will select the *arr_delay* and *dep_delay* fields to create a raster plot.  The defaults return a ggplot with a resolutions of 300.
+
+```{r}
+flights %>%
   select(arr_delay, dep_delay) %>%
   db_raster()
 ```
 
+Reducing the resolution returns larger squares and, most importantly, less records into R memory.  
+
 ```{r}
 flights %>%
-  filter(arr_delay < 100) %>%
   select(arr_delay, dep_delay) %>%
-  db_raster(output = "ggplot")
+  db_raster(resolution = 20)
 ```
+
+Just like db_histogram, passing "data" to the *output* argument returns a data frame. 
+
 ```{r}
 flights %>%
-  filter(arr_delay < 100) %>%
   select(arr_delay, dep_delay) %>%
-  db_raster(resolution = 20, output = "ggplot")
+  db_raster(output = "data")
 ```
+
+## Closing the connection
 
 ```{r}
 spark_disconnect(sc)
