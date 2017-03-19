@@ -27,7 +27,7 @@ devtools::install_github("edgararuiz/dbutilities")
 
 We will review how to use **dbutilities** with the following example. We'll start by loading the needed libraries. We will use the *nycflights13* as the data source for this example
 
-```{r, include = FALSE}
+```{r, include = FALSE, eval = FALSE}
 # Required
 library(tidyverse)
 library(sparklyr)

@@ -21,8 +21,7 @@
 #' }
 #'
 #'
-db_histogram <- function(data, bins = 30, output = "ggplot", ...) {
-    args <- list(...)
+db_histogram <- function(data, bins = 30, output = "ggplot") {
 
     x_name <- colnames(data)[1]
 
@@ -53,7 +52,7 @@ db_histogram <- function(data, bins = 30, output = "ggplot", ...) {
 
     if (output == "ggplot") {
       plot_table <- ggplot2::ggplot(data = plot_table) +
-        ggplot2::geom_bar(aes(bin_values, count), stat = "identity") +
+        ggplot2::geom_bar(ggplot2::aes(bin_values, count), stat = "identity") +
         ggplot2::labs(x = x_name)
     }
 

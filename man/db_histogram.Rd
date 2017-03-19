@@ -4,7 +4,7 @@
 \alias{db_histogram}
 \title{Computes the bins of the histogram in the server}
 \usage{
-db_histogram(data, bins = 30, output = "ggplot", ...)
+db_histogram(data, bins = 30, output = "ggplot")
 }
 \arguments{
 \item{data}{Data frame or Spark table}

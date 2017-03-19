@@ -4,7 +4,7 @@
 \alias{db_raster}
 \title{Computes the frequency of x, y intersections and concentrates them based on the resolution}
 \usage{
-db_raster(data, resolution = 300, output = "ggplot", ...)
+db_raster(data, resolution = 300, output = "ggplot")
 }
 \arguments{
 \item{data}{Data frame or Spark table}

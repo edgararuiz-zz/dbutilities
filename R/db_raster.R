@@ -19,8 +19,7 @@
 #'   db_raster()
 #' }
 #'
-db_raster <- function(data, resolution = 300, output = "ggplot", ...) {
-    args <- list(...)
+db_raster <- function(data, resolution = 300, output = "ggplot") {
 
     x_field <- colnames(data)[1]
     y_field <- colnames(data)[2]
@@ -40,7 +39,7 @@ db_raster <- function(data, resolution = 300, output = "ggplot", ...) {
 
     if (output == "ggplot") {
         counts <- ggplot2::ggplot(data = counts) +
-          ggplot2::geom_raster(aes(res_x, res_y, fill = n)) +
+          ggplot2::geom_raster(ggplot2::aes(res_x, res_y, fill = n)) +
           ggplot2::labs(x = x_field, y = y_field) +
           ggplot2::scale_fill_continuous(name = "Frequency")
     }
