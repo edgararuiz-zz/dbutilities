@@ -1,0 +1,138 @@
+17/03/18 11:49:09 INFO SparkContext: Running Spark version 1.6.0
+17/03/18 11:49:09 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+17/03/18 11:49:09 INFO SecurityManager: Changing view acls to: edgar
+17/03/18 11:49:09 INFO SecurityManager: Changing modify acls to: edgar
+17/03/18 11:49:09 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(edgar); users with modify permissions: Set(edgar)
+17/03/18 11:49:10 INFO Utils: Successfully started service 'sparkDriver' on port 53605.
+17/03/18 11:49:10 INFO Slf4jLogger: Slf4jLogger started
+17/03/18 11:49:10 INFO Remoting: Starting remoting
+17/03/18 11:49:10 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@127.0.0.1:53606]
+17/03/18 11:49:10 INFO Utils: Successfully started service 'sparkDriverActorSystem' on port 53606.
+17/03/18 11:49:10 INFO SparkEnv: Registering MapOutputTracker
+17/03/18 11:49:10 INFO SparkEnv: Registering BlockManagerMaster
+17/03/18 11:49:10 INFO DiskBlockManager: Created local directory at /private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/blockmgr-390bb88a-cc9c-40dc-9e17-91cb6875701b
+17/03/18 11:49:10 INFO MemoryStore: MemoryStore started with capacity 511.1 MB
+17/03/18 11:49:10 INFO SparkEnv: Registering OutputCommitCoordinator
+17/03/18 11:49:11 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+17/03/18 11:49:11 INFO SparkUI: Started SparkUI at http://127.0.0.1:4040
+17/03/18 11:49:11 INFO HttpFileServer: HTTP File server directory is /private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34/httpd-a63d138f-42fc-48ce-b78e-1d53897d9bc2
+17/03/18 11:49:11 INFO HttpServer: Starting HTTP Server
+17/03/18 11:49:11 INFO Utils: Successfully started service 'HTTP file server' on port 53607.
+17/03/18 11:49:11 INFO SparkContext: Added JAR file:/Library/Frameworks/R.framework/Versions/3.3/Resources/library/sparklyr/java/spark-csv_2.11-1.3.0.jar at http://127.0.0.1:53607/jars/spark-csv_2.11-1.3.0.jar with timestamp 1489855751110
+17/03/18 11:49:11 INFO SparkContext: Added JAR file:/Library/Frameworks/R.framework/Versions/3.3/Resources/library/sparklyr/java/commons-csv-1.1.jar at http://127.0.0.1:53607/jars/commons-csv-1.1.jar with timestamp 1489855751112
+17/03/18 11:49:11 INFO SparkContext: Added JAR file:/Library/Frameworks/R.framework/Versions/3.3/Resources/library/sparklyr/java/univocity-parsers-1.5.1.jar at http://127.0.0.1:53607/jars/univocity-parsers-1.5.1.jar with timestamp 1489855751113
+17/03/18 11:49:11 INFO SparkContext: Added JAR file:/Library/Frameworks/R.framework/Versions/3.3/Resources/library/sparklyr/java/sparklyr-1.6-2.10.jar at http://127.0.0.1:53607/jars/sparklyr-1.6-2.10.jar with timestamp 1489855751114
+17/03/18 11:49:11 INFO Executor: Starting executor ID driver on host localhost
+17/03/18 11:49:11 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 53608.
+17/03/18 11:49:11 INFO NettyBlockTransferService: Server created on 53608
+17/03/18 11:49:11 INFO BlockManagerMaster: Trying to register BlockManager
+17/03/18 11:49:11 INFO BlockManagerMasterEndpoint: Registering block manager localhost:53608 with 511.1 MB RAM, BlockManagerId(driver, localhost, 53608)
+17/03/18 11:49:11 INFO BlockManagerMaster: Registered BlockManager
+17/03/18 11:49:12 INFO HiveContext: Initializing execution hive, version 1.2.1
+17/03/18 11:49:12 INFO ClientWrapper: Inspected Hadoop version: 2.6.0
+17/03/18 11:49:12 INFO ClientWrapper: Loaded org.apache.hadoop.hive.shims.Hadoop23Shims for Hadoop version 2.6.0
+17/03/18 11:49:12 INFO HiveMetaStore: 0: Opening raw store with implemenation class:org.apache.hadoop.hive.metastore.ObjectStore
+17/03/18 11:49:17 INFO ObjectStore: ObjectStore, initialize called
+17/03/18 11:49:17 INFO Persistence: Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
+17/03/18 11:49:17 INFO Persistence: Property datanucleus.cache.level2 unknown - will be ignored
+17/03/18 11:49:17 WARN Connection: BoneCP specified but not present in CLASSPATH (or one of dependencies)
+17/03/18 11:49:17 WARN Connection: BoneCP specified but not present in CLASSPATH (or one of dependencies)
+17/03/18 11:49:18 INFO ObjectStore: Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+17/03/18 11:49:19 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
+17/03/18 11:49:19 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
+17/03/18 11:49:19 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
+17/03/18 11:49:19 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
+17/03/18 11:49:19 INFO MetaStoreDirectSql: Using direct SQL, underlying DB is DERBY
+17/03/18 11:49:19 INFO ObjectStore: Initialized ObjectStore
+17/03/18 11:49:19 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 1.2.0
+17/03/18 11:49:19 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException
+17/03/18 11:49:25 INFO HiveMetaStore: Added admin role in metastore
+17/03/18 11:49:25 INFO HiveMetaStore: Added public role in metastore
+17/03/18 11:49:25 INFO HiveMetaStore: No user is added in admin role, since config is empty
+17/03/18 11:49:25 INFO HiveMetaStore: 0: get_all_databases
+17/03/18 11:49:25 INFO audit: ugi=edgar	ip=unknown-ip-addr	cmd=get_all_databases	
+17/03/18 11:49:25 INFO HiveMetaStore: 0: get_functions: db=default pat=*
+17/03/18 11:49:25 INFO audit: ugi=edgar	ip=unknown-ip-addr	cmd=get_functions: db=default pat=*	
+17/03/18 11:49:25 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MResourceUri" is tagged as "embedded-only" so does not have its own datastore table.
+17/03/18 11:49:25 INFO SessionState: Created local directory: /var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/69a82d9d-ddcd-4e38-a162-03f1a6fa1e20_resources
+17/03/18 11:49:25 INFO SessionState: Created HDFS directory: /tmp/hive/edgar/69a82d9d-ddcd-4e38-a162-03f1a6fa1e20
+17/03/18 11:49:25 INFO SessionState: Created local directory: /var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/edgar/69a82d9d-ddcd-4e38-a162-03f1a6fa1e20
+17/03/18 11:49:25 INFO SessionState: Created HDFS directory: /tmp/hive/edgar/69a82d9d-ddcd-4e38-a162-03f1a6fa1e20/_tmp_space.db
+17/03/18 11:49:25 INFO HiveContext: default warehouse location is /user/hive/warehouse
+17/03/18 11:49:25 INFO HiveContext: Initializing HiveMetastoreConnection version 1.2.1 using Spark classes.
+17/03/18 11:49:25 INFO ClientWrapper: Inspected Hadoop version: 2.6.0
+17/03/18 11:49:25 INFO ClientWrapper: Loaded org.apache.hadoop.hive.shims.Hadoop23Shims for Hadoop version 2.6.0
+17/03/18 11:49:25 INFO HiveMetaStore: 0: Opening raw store with implemenation class:org.apache.hadoop.hive.metastore.ObjectStore
+17/03/18 11:49:30 INFO ObjectStore: ObjectStore, initialize called
+17/03/18 11:49:30 INFO Persistence: Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
+17/03/18 11:49:30 INFO Persistence: Property datanucleus.cache.level2 unknown - will be ignored
+17/03/18 11:49:30 WARN Connection: BoneCP specified but not present in CLASSPATH (or one of dependencies)
+17/03/18 11:49:31 WARN Connection: BoneCP specified but not present in CLASSPATH (or one of dependencies)
+17/03/18 11:49:31 INFO ObjectStore: Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+17/03/18 11:49:32 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
+17/03/18 11:49:32 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
+17/03/18 11:49:32 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
+17/03/18 11:49:32 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
+17/03/18 11:49:32 INFO MetaStoreDirectSql: Using direct SQL, underlying DB is DERBY
+17/03/18 11:49:32 INFO ObjectStore: Initialized ObjectStore
+17/03/18 11:49:32 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 1.2.0
+17/03/18 11:49:32 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException
+17/03/18 11:49:32 INFO HiveMetaStore: Added admin role in metastore
+17/03/18 11:49:32 INFO HiveMetaStore: Added public role in metastore
+17/03/18 11:49:32 INFO HiveMetaStore: No user is added in admin role, since config is empty
+17/03/18 11:49:33 INFO HiveMetaStore: 0: get_all_databases
+17/03/18 11:49:33 INFO audit: ugi=edgar	ip=unknown-ip-addr	cmd=get_all_databases	
+17/03/18 11:49:33 INFO HiveMetaStore: 0: get_functions: db=default pat=*
+17/03/18 11:49:33 INFO audit: ugi=edgar	ip=unknown-ip-addr	cmd=get_functions: db=default pat=*	
+17/03/18 11:49:33 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MResourceUri" is tagged as "embedded-only" so does not have its own datastore table.
+17/03/18 11:49:33 INFO SessionState: Created local directory: /var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/13c9d965-794b-4017-ab8b-eedf25628558_resources
+17/03/18 11:49:33 INFO SessionState: Created HDFS directory: /tmp/hive/edgar/13c9d965-794b-4017-ab8b-eedf25628558
+17/03/18 11:49:33 INFO SessionState: Created local directory: /var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/edgar/13c9d965-794b-4017-ab8b-eedf25628558
+17/03/18 11:49:33 INFO SessionState: Created HDFS directory: /tmp/hive/edgar/13c9d965-794b-4017-ab8b-eedf25628558/_tmp_space.db
+17/03/18 11:49:33 INFO HiveMetaStore: 0: get_tables: db=default pat=.*
+17/03/18 11:49:33 INFO audit: ugi=edgar	ip=unknown-ip-addr	cmd=get_tables: db=default pat=.*	
+17/03/18 11:49:34 INFO SparkContext: Starting job: collect at utils.scala:197
+17/03/18 11:49:34 INFO DAGScheduler: Got job 0 (collect at utils.scala:197) with 1 output partitions
+17/03/18 11:49:34 INFO DAGScheduler: Final stage: ResultStage 0 (collect at utils.scala:197)
+17/03/18 11:49:34 INFO DAGScheduler: Parents of final stage: List()
+17/03/18 11:49:34 INFO DAGScheduler: Missing parents: List()
+17/03/18 11:49:34 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[1] at collect at utils.scala:197), which has no missing parents
+17/03/18 11:49:34 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 1952.0 B, free 1952.0 B)
+17/03/18 11:49:34 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 1211.0 B, free 3.1 KB)
+17/03/18 11:49:34 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on localhost:53608 (size: 1211.0 B, free: 511.1 MB)
+17/03/18 11:49:34 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1006
+17/03/18 11:49:34 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[1] at collect at utils.scala:197)
+17/03/18 11:49:34 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+17/03/18 11:49:34 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, partition 0,PROCESS_LOCAL, 2348 bytes)
+17/03/18 11:49:34 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+17/03/18 11:49:34 INFO Executor: Fetching http://127.0.0.1:53607/jars/spark-csv_2.11-1.3.0.jar with timestamp 1489855751110
+17/03/18 11:49:34 INFO Utils: Fetching http://127.0.0.1:53607/jars/spark-csv_2.11-1.3.0.jar to /private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34/userFiles-cfa20fc1-3f09-4792-aa84-e9e8bedc12d2/fetchFileTemp1058906818040854964.tmp
+17/03/18 11:49:34 INFO Executor: Adding file:/private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34/userFiles-cfa20fc1-3f09-4792-aa84-e9e8bedc12d2/spark-csv_2.11-1.3.0.jar to class loader
+17/03/18 11:49:34 INFO Executor: Fetching http://127.0.0.1:53607/jars/commons-csv-1.1.jar with timestamp 1489855751112
+17/03/18 11:49:34 INFO Utils: Fetching http://127.0.0.1:53607/jars/commons-csv-1.1.jar to /private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34/userFiles-cfa20fc1-3f09-4792-aa84-e9e8bedc12d2/fetchFileTemp9215647478168048133.tmp
+17/03/18 11:49:34 INFO Executor: Adding file:/private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34/userFiles-cfa20fc1-3f09-4792-aa84-e9e8bedc12d2/commons-csv-1.1.jar to class loader
+17/03/18 11:49:34 INFO Executor: Fetching http://127.0.0.1:53607/jars/univocity-parsers-1.5.1.jar with timestamp 1489855751113
+17/03/18 11:49:34 INFO Utils: Fetching http://127.0.0.1:53607/jars/univocity-parsers-1.5.1.jar to /private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34/userFiles-cfa20fc1-3f09-4792-aa84-e9e8bedc12d2/fetchFileTemp7832206512902080136.tmp
+17/03/18 11:49:34 INFO Executor: Adding file:/private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34/userFiles-cfa20fc1-3f09-4792-aa84-e9e8bedc12d2/univocity-parsers-1.5.1.jar to class loader
+17/03/18 11:49:34 INFO Executor: Fetching http://127.0.0.1:53607/jars/sparklyr-1.6-2.10.jar with timestamp 1489855751114
+17/03/18 11:49:34 INFO Utils: Fetching http://127.0.0.1:53607/jars/sparklyr-1.6-2.10.jar to /private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34/userFiles-cfa20fc1-3f09-4792-aa84-e9e8bedc12d2/fetchFileTemp5615067742787786090.tmp
+17/03/18 11:49:34 INFO Executor: Adding file:/private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34/userFiles-cfa20fc1-3f09-4792-aa84-e9e8bedc12d2/sparklyr-1.6-2.10.jar to class loader
+17/03/18 11:49:34 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 940 bytes result sent to driver
+17/03/18 11:49:34 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 143 ms on localhost (1/1)
+17/03/18 11:49:34 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+17/03/18 11:49:34 INFO DAGScheduler: ResultStage 0 (collect at utils.scala:197) finished in 0.156 s
+17/03/18 11:49:34 INFO DAGScheduler: Job 0 finished: collect at utils.scala:197, took 0.269489 s
+17/03/18 11:54:58 INFO SparkContext: Invoking stop() from shutdown hook
+17/03/18 11:54:59 INFO SparkUI: Stopped Spark web UI at http://127.0.0.1:4040
+17/03/18 11:54:59 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+17/03/18 11:54:59 INFO MemoryStore: MemoryStore cleared
+17/03/18 11:54:59 INFO BlockManager: BlockManager stopped
+17/03/18 11:54:59 INFO BlockManagerMaster: BlockManagerMaster stopped
+17/03/18 11:54:59 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+17/03/18 11:54:59 INFO SparkContext: Successfully stopped SparkContext
+17/03/18 11:54:59 INFO ShutdownHookManager: Shutdown hook called
+17/03/18 11:54:59 INFO ShutdownHookManager: Deleting directory /private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-01057043-ca50-4b7b-a3f4-362e974766e5
+17/03/18 11:54:59 INFO RemoteActorRefProvider$RemotingTerminator: Shutting down remote daemon.
+17/03/18 11:54:59 INFO RemoteActorRefProvider$RemotingTerminator: Remote daemon shut down; proceeding with flushing remote transports.
+17/03/18 11:54:59 INFO ShutdownHookManager: Deleting directory /private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34
+17/03/18 11:54:59 INFO ShutdownHookManager: Deleting directory /private/var/folders/vd/krh_y3qd0c5bw8k77lmdtw7r0000gn/T/spark-9fce1689-d2c0-4e66-a8bd-d2efbd635e34/httpd-a63d138f-42fc-48ce-b78e-1d53897d9bc2

@@ -2,7 +2,7 @@
 % Please edit documentation in R/db_map_csv.R
 \name{db_map_csv}
 \alias{db_map_csv}
-\title{db_histogram}
+\title{db_map_csv}
 \usage{
 db_map_csv(filename, db = "sparklyr", ...)
 }
@@ -12,7 +12,7 @@ db_map_csv(filename, db = "sparklyr", ...)
 \item{db}{The type of connection or database. Possible values: 'hive', 'sparklyr'}
 }
 \description{
-db_histogram
+db_map_csv
 }
 \details{
 Utility to build the CREATE TABLE SQL for a Hive table or the columns list for sparklyr based on the top 5
